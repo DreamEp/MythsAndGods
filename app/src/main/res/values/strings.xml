@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MythsAndGods</string>
+    <string name="logo_name">M&amp;G</string>
+    <string name="title_activity_title_bar">TitleBar</string>
 </resources>
