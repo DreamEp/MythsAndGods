@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Myths &amp; Gods</string>
     <string name="logo_name">M&amp;G</string>
-    <string name="title_activity_title_bar">TitleBar</string>
+    <string name="app_mail">myths&amp;gods@gmail.com</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>
