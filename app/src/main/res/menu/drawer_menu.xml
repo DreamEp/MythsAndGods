@@ -5,38 +5,38 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/home"
+            android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="Home"></item>
+            android:title="@string/str_home"></item>
     </group>
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/category"
+            android:id="@+id/nav_category"
             android:icon="@mipmap/ic_logo"
-            android:title="Catégories"></item>
+            android:title="@string/str_category"></item>
     </group>
 
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/favorite"
+            android:id="@+id/nav_favorite"
             android:icon="@drawable/ic_favorite"
-            android:title="Favoris"></item>
+            android:title="@string/str_favorite"></item>
 
         <item
-            android:id="@+id/setting"
+            android:id="@+id/nav_setting"
             android:icon="@drawable/ic_setting"
-            android:title="Paramètre">
+            android:title="@string/str_setting">
         </item>
     </group>
 
     <item android:title="Communiquer">
         <menu>
             <item
-                android:id="@+id/share"
+                android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
-                android:title="Partager"></item>
+                android:title="@string/str_share"></item>
         </menu>
     </item>
 

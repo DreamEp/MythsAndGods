@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="color_logo">#c3ac12</color>
     <color name="color_toolbar">#696969</color>
+    <color name="color_nordic">#9FCAEE</color>
+    <color name="color_greek">#9c732f</color>
 </resources>

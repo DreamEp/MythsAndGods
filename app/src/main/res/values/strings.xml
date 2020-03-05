@@ -4,5 +4,9 @@
     <string name="app_mail">myths&amp;gods@gmail.com</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="str_favorite">Favoris</string>
+    <string name="str_home">Home</string>
+    <string name="str_category">Catégories</string>
+    <string name="str_setting">Paramètre</string>
+    <string name="str_share">Partager</string>
 </resources>
