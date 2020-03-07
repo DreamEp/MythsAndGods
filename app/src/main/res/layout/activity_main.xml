@@ -21,8 +21,8 @@
             android:background="@color/color_toolbar"
             android:elevation="4dp"
             android:theme="@style/AppTheme.AppBarOverlay"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="@string/app_name"
+
             app:titleTextColor="@color/color_logo" />
 
 
@@ -42,7 +42,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
-
-        app:menu="@menu/drawer_menu" />
+        app:menu="@menu/drawer_menu"
+        app:itemIconTint="@color/color_logo"
+        app:itemTextColor="@color/color_black"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

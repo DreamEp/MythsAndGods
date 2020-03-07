@@ -10,35 +10,36 @@
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_toolbar">
+        android:background="@color/color_gray">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="480px"
-            android:layout_height="270px"
-            />
+            android:layout_width="720px"
+            android:layout_height="405px" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="137dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/imageView"
+            android:padding="4dp"
             android:text="Line 1"
-            android:textColor="@color/color_logo"
+            android:textColor="@color/color_toolbar"
+            android:textAlignment="center"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:padding="4dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="137dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
             android:layout_toEndOf="@id/imageView"
-            android:textColor="@color/color_logo"
-            android:text="Line 2"
             android:padding="4dp"
+            android:text="Line 2"
+            android:textAlignment="center"
+            android:textColor="#555555"
             android:textSize="15sp" />
 
     </RelativeLayout>
