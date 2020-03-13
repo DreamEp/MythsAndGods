@@ -43,6 +43,7 @@ public class CategoryFragment extends Fragment {
         mAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                //
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TabLayoutFragment()).commit();
                 //navigationView.setCheckedItem(R.id.nav_category);
                 openWebViewActivity();
