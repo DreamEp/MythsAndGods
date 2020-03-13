@@ -9,4 +9,6 @@
     <string name="str_category">Catégories</string>
     <string name="str_setting">Paramètre</string>
     <string name="str_share">Partager</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
 </resources>

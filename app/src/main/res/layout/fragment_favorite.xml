@@ -5,6 +5,7 @@
     android:background="@color/color_toolbar">
 
     <TextView
+        android:id="@+id/text_view_fav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

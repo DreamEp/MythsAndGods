@@ -38,9 +38,13 @@ public class CategoryFragment extends Fragment {
         mAdapter = new CategoryAdapter(categoryList);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+
         mAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TabLayoutFragment()).commit();
+                navigationView.setCheckedItem(R.id.nav_category);
                 openWebViewActivity();
                 //categoryList.get(position).changeText1("Clicked");
                 //mAdapter.notifyItemChanged(position);
