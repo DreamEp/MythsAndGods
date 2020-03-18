@@ -30,8 +30,10 @@ public class CategoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
 
         final ArrayList<CategoryItem> categoryList = new ArrayList<>();
-        categoryList.add(new CategoryItem(R.drawable.nordic, "Mythologie Nordique", "Froid !"));
-        categoryList.add(new CategoryItem(R.drawable.greek, "Mythologie Grecque", "Nue !"));
+        //categoryList.add(new CategoryItem(R.drawable.nordic, "Mythologie Nordique", "Froid !"));
+        //categoryList.add(new CategoryItem(R.drawable.greek, "Mythologie Grecque", "Nue !"));
+        categoryList.add(new CategoryItem(R.drawable.nordic, "Mythologie Nordique"));
+        categoryList.add(new CategoryItem(R.drawable.greek, "Mythologie Grecque"));
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
@@ -43,19 +45,20 @@ public class CategoryFragment extends Fragment {
         mAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //
-                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TabLayoutFragment()).commit();
-                //navigationView.setCheckedItem(R.id.nav_category);
-                openWebViewActivity();
+                Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
+                intent.putExtra("key_category1", categoryList.get(position).getText1());
+                startActivity(intent);
+                //OpenViewPagerActivity();
                 //categoryList.get(position).changeText1("Clicked");
                 //mAdapter.notifyItemChanged(position);
             }
         });
         return view;
     }
+    /*
+    public void OpenViewPagerActivity(){
+        Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
 
-    public void openWebViewActivity(){
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
         startActivity(intent);
-    }
+    }*/
 }
