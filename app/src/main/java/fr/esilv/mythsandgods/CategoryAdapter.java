@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
@@ -32,7 +34,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
-            //mTextView2 = itemView.findViewById(R.id.textView2);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -63,9 +64,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         CategoryItem currentItem = mCategoryList.get(position);
-        holder.mImageView.setImageResource(currentItem.getImageResource());
-        holder.mTextView1.setText(currentItem.getText1());
-        //holder.mTextView2.setText(currentItem.getText2());
+        Glide.with(holder.itemView.getContext()).load(currentItem.getPicture()).into(holder.mImageView);
+        holder.mTextView1.setText(currentItem.getName());
     }
 
     @Override

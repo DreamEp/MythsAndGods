@@ -13,13 +13,19 @@ import androidx.fragment.app.Fragment;
 
 public class FavoriteFragment extends Fragment {
 
+    private TextView text;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_favorite, container, false);
-        TextView text = (TextView) v.findViewById(R.id.text_view_fav);
-        String category = getArguments().getString("key_category2");
-        //text.setText(category);
+        text = (TextView) v.findViewById(R.id.text_view_fav);
         return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        String category = getArguments().getString("key_category2");
+        text.setText(category);
     }
 }

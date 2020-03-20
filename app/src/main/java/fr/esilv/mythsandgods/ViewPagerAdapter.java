@@ -11,7 +11,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     int tabCount;
     private String[] tabTitles = new String[] {"Favoris", "WebView", "Catégories"};
 
-    public ViewPagerAdapter(FragmentManager fm, int tabCount) {
+    public ViewPagerAdapter(FragmentManager fm, int tabCount /*,String category*/) {
         super(fm);
         //Initializing tab count
         this.tabCount= tabCount;
