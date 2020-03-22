@@ -1,4 +1,4 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.ViewPager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +16,12 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import fr.esilv.mythsandgods.Category.CategoryFragment;
+import fr.esilv.mythsandgods.Category.FavoriteFragment;
+import fr.esilv.mythsandgods.Category.CategoryActivity;
+import fr.esilv.mythsandgods.Category.SettingFragment;
+import fr.esilv.mythsandgods.R;
 
 public class ViewPagerActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, NavigationView.OnNavigationItemSelectedListener{
 
@@ -79,7 +85,7 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewPagerActivity.this, MainActivity.class);
+                Intent intent = new Intent(ViewPagerActivity.this, CategoryActivity.class);
                 startActivity(intent);
             }
         });

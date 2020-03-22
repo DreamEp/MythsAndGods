@@ -11,16 +11,21 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewPagerActivity"></activity>
-        <activity android:name=".WebViewFragment" />
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ViewPager.ViewPagerActivity" />
+        <activity android:name=".ViewPager.WebViewFragment" />
+        <activity
+            android:name=".Category.CategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

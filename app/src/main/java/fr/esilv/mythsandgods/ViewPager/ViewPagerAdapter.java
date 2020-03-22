@@ -1,9 +1,12 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.ViewPager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import fr.esilv.mythsandgods.Category.CategoryFragment;
+import fr.esilv.mythsandgods.Category.FavoriteFragment;
 
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {

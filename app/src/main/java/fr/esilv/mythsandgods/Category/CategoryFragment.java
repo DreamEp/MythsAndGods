@@ -1,4 +1,4 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.Category;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
+import fr.esilv.mythsandgods.R;
+import fr.esilv.mythsandgods.ViewPager.ViewPagerActivity;
 
 
 public class CategoryFragment extends Fragment {

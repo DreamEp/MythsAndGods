@@ -1,4 +1,4 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.Category;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import fr.esilv.mythsandgods.R;
 
 public class FavoriteFragment extends Fragment {
 

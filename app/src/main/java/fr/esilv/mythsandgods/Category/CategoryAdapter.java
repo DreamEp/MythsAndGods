@@ -1,4 +1,4 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.Category;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+
+import fr.esilv.mythsandgods.R;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
     private ArrayList<CategoryItem> mCategoryList;

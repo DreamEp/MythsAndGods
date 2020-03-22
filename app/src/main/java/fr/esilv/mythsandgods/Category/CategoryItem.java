@@ -1,8 +1,11 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.Category;
 
 
 import java.io.Serializable;
 import java.net.URL;
+
+import fr.esilv.mythsandgods.ViewPager.DivinityItem;
+import fr.esilv.mythsandgods.ViewPager.MonsterItem;
 
 public class CategoryItem implements Serializable {
 

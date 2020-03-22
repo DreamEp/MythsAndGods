@@ -1,4 +1,4 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.ViewPager;
 
 import java.io.Serializable;
 import java.net.URL;
