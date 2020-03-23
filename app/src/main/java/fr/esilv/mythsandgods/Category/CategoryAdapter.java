@@ -1,5 +1,6 @@
 package fr.esilv.mythsandgods.Category;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public static class CategoryViewHolder extends RecyclerView.ViewHolder{
         public ImageView mImageView;
         public TextView mTextView1;
-        //public TextView mTextView2;
 
         public CategoryViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
@@ -66,8 +66,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         CategoryItem currentItem = mCategoryList.get(position);
-        Glide.with(holder.itemView.getContext()).load(currentItem.getPicture()).into(holder.mImageView);
-        holder.mTextView1.setText(currentItem.getName());
+        Log.d("HEEEEEELLLO", currentItem.getCategory_name());
+        Glide.with(holder.itemView.getContext()).load(currentItem.getCategory_picture()).into(holder.mImageView);
+        holder.mTextView1.setText(currentItem.getCategory_name());
     }
 
     @Override

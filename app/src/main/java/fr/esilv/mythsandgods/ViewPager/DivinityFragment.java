@@ -1,4 +1,4 @@
-package fr.esilv.mythsandgods.Category;
+package fr.esilv.mythsandgods.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,52 +22,53 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import fr.esilv.mythsandgods.Category.CategoryAdapter;
+import fr.esilv.mythsandgods.Category.CategoryItem;
 import fr.esilv.mythsandgods.R;
-import fr.esilv.mythsandgods.ViewPager.ViewPagerActivity;
 
-
-public class CategoryFragment extends Fragment {
+public class DivinityFragment extends Fragment {
     private RecyclerView mRecyclerView;
+    private DivinityAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-
-    DatabaseReference reff_category;
-
-
+    DatabaseReference reff_divinity;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        final View view = inflater.inflate(R.layout.fragment_list_divinity, container, false);
 
-        final View view = inflater.inflate(R.layout.fragment_category, container, false);
+        final ArrayList<DivinityItem> divinityList = new ArrayList<>();
+        Bundle bundle = getArguments();
+        String category = bundle.getString("key_category2");
+        if (category == "Mythologie nordique") category = "Nordic";
+        else if(category == "Mythologie grecque") category ="Greek";
 
-        final ArrayList<CategoryItem> categoryList = new ArrayList<>();
+        reff_divinity = FirebaseDatabase.getInstance().getReference().child(category);
 
-        reff_category = FirebaseDatabase.getInstance().getReference().child("CATEGORY");
-
-        reff_category.addValueEventListener(new ValueEventListener() {
+        reff_divinity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot item:dataSnapshot.getChildren()){
-                    CategoryItem category = item.getValue(CategoryItem.class);
-                    categoryList.add(category);
+                    DivinityItem divinity = item.getValue(DivinityItem.class);
+                    divinityList.add(divinity);
                 }
-                CategoryAdapter mAdapter;
-                mAdapter = new CategoryAdapter(categoryList);
-                mAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
+                DivinityAdapter mAdapter;
+                mAdapter = new DivinityAdapter(divinityList);
+                /*mAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
                         Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
-                        intent.putExtra("key_category1", categoryList.get(position).getCategory_name());
+                        intent.putExtra("key_category", categoryList.get(position).getCategory_name());
                         startActivity(intent);
                         //OpenViewPagerActivity();
                         //categoryList.get(position).changeText1("Clicked");
                         //mAdapter.notifyItemChanged(position);
                     }
-                });
+                });*/
                 mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
                 mRecyclerView.setHasFixedSize(true);
-                mLayoutManager = new LinearLayoutManager(getActivity());
+                mLayoutManager = new GridLayoutManager(getActivity(),3);
                 mRecyclerView.setLayoutManager(mLayoutManager);
                 mRecyclerView.setAdapter(mAdapter);
             }
@@ -77,5 +80,4 @@ public class CategoryFragment extends Fragment {
         });
         return view;
     }
-
 }

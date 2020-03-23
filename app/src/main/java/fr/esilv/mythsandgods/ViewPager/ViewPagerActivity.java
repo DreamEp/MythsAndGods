@@ -23,7 +23,7 @@ import fr.esilv.mythsandgods.Category.CategoryActivity;
 import fr.esilv.mythsandgods.Category.SettingFragment;
 import fr.esilv.mythsandgods.R;
 
-public class ViewPagerActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, NavigationView.OnNavigationItemSelectedListener{
+public class ViewPagerActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 
     //This is our tablayout
     private TabLayout tabLayout;
@@ -31,8 +31,7 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
     //This is our viewPager
     private ViewPager viewPager;
 
-    //This is our drawerlayout
-    private DrawerLayout drawer;
+
 
 
     @Override
@@ -43,13 +42,6 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
         //Initializing the tablayout
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -74,11 +66,11 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         tabLayout.setOnTabSelectedListener(this);
 
 
-        String category = getIntent().getStringExtra("key_category1");
-        Bundle data = new Bundle();
-        data.putString("key_category2", category);
-        FavoriteFragment category_frag = new FavoriteFragment();
-        category_frag.setArguments(data);
+        String category_name = getIntent().getStringExtra("key_category1");
+        Bundle bundle = new Bundle();
+        bundle.putString("key_category2", category_name);
+        DivinityFragment category_frag = new DivinityFragment();
+        category_frag.setArguments(bundle);
 
 
 
@@ -104,37 +96,5 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
 
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.nav_category:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CategoryFragment()).commit();
-                break;
-
-            case R.id.nav_favorite:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FavoriteFragment()).commit();
-                break;
-
-            case R.id.nav_setting:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingFragment()).commit();
-                break;
-
-            case R.id.nav_share:
-                Toast.makeText(this, "Partager", Toast.LENGTH_SHORT).show();
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed(){
-        if(drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }else{
-            super.onBackPressed();
-        }
-        super.onBackPressed();
     }
 }

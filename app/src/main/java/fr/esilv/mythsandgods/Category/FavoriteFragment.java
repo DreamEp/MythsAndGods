@@ -27,7 +27,7 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String category = getArguments().getString("key_category2");
-        text.setText(category);
+        //String category = getArguments().getString("key_category2");
+        text.setText("Favoris");
     }
 }

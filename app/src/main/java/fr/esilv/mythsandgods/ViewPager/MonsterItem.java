@@ -1,17 +1,19 @@
 package fr.esilv.mythsandgods.ViewPager;
 
 import java.io.Serializable;
-import java.net.URL;
 
 public class MonsterItem implements Serializable {
     private String name;
     private String title;
-    private URL presentation;
+    private String presentation;
 
-    public MonsterItem(String name, String title, URL presentation) {
+    public MonsterItem(String name, String title, String presentation) {
         this.name = name;
         this.title = title;
         this.presentation = presentation;
+    }
+
+    public MonsterItem() {
     }
 
     public String getName() {
@@ -30,11 +32,11 @@ public class MonsterItem implements Serializable {
         this.title = title;
     }
 
-    public URL getPresentation() {
+    public String getPresentation() {
         return presentation;
     }
 
-    public void setPresentation(URL presentation) {
+    public void setPresentation(String presentation) {
         this.presentation = presentation;
     }
 }

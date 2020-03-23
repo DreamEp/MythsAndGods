@@ -2,74 +2,77 @@ package fr.esilv.mythsandgods.Category;
 
 
 import java.io.Serializable;
-import java.net.URL;
+import java.util.ArrayList;
 
 import fr.esilv.mythsandgods.ViewPager.DivinityItem;
 import fr.esilv.mythsandgods.ViewPager.MonsterItem;
 
 public class CategoryItem implements Serializable {
 
-    private String name;
-    private URL picture;
-    private String summary;
-    private URL website;
-    private DivinityItem divinity_list[];
-    private MonsterItem monster_list[];
+    private String category_name;
+    private String category_picture;
+    private String category_summary;
+    private String website;
+    private ArrayList<DivinityItem> divinity_list;
+    private ArrayList<MonsterItem> monster_list;
 
-    public CategoryItem(String name, URL picture, String summary, URL website, DivinityItem[] divinity_list, MonsterItem[] monster_list) {
-        this.name = name;
-        this.picture = picture;
-        this.summary = summary;
+    public CategoryItem(String category_name, String category_picture, String category_summary, String website, ArrayList<DivinityItem> divinity_list, ArrayList<MonsterItem> monster_list) {
+        this.category_name = category_name;
+        this.category_picture = category_picture;
+        this.category_summary = category_summary;
         this.website = website;
         this.divinity_list = divinity_list;
         this.monster_list = monster_list;
     }
 
-    public String getName() {
-        return name;
+    public CategoryItem() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCategory_name() {
+        return category_name;
     }
 
-    public URL getPicture() {
-        return picture;
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
     }
 
-    public void setPicture(URL picture) {
-        this.picture = picture;
+    public String getCategory_picture() {
+        return category_picture;
     }
 
-    public String getSummary() {
-        return summary;
+    public void setCategory_picture(String category_picture) {
+        this.category_picture = category_picture;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public String getCategory_summary() {
+        return category_summary;
     }
 
-    public URL getWebsite() {
+    public void setCategory_summary(String category_summary) {
+        this.category_summary = category_summary;
+    }
+
+    public String getWebsite() {
         return website;
     }
 
-    public void setWebsite(URL website) {
+    public void setWebsite(String website) {
         this.website = website;
     }
 
-    public DivinityItem[] getDivinity_list() {
+    public ArrayList<DivinityItem> getDivinity_list() {
         return divinity_list;
     }
 
-    public void setDivinity_list(DivinityItem[] divinity_list) {
+    public void setDivinity_list(ArrayList<DivinityItem> divinity_list) {
         this.divinity_list = divinity_list;
     }
 
-    public MonsterItem[] getMonster_list() {
+    public ArrayList<MonsterItem> getMonster_list() {
         return monster_list;
     }
 
-    public void setMonster_list(MonsterItem[] monster_list) {
+    public void setMonster_list(ArrayList<MonsterItem> monster_list) {
         this.monster_list = monster_list;
     }
 }

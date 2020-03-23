@@ -46,6 +46,7 @@ public class CategoryActivity extends AppCompatActivity implements NavigationVie
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        View drawer_xml = getLayoutInflater().inflate(R.layout.nav_header, null);
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -56,11 +57,11 @@ public class CategoryActivity extends AppCompatActivity implements NavigationVie
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        imageView = findViewById(R.id.user_image);
-        name = findViewById(R.id.user_name);
-        email = findViewById(R.id.user_mail);
-        id = findViewById(R.id.user_id);
-        signout = findViewById(R.id.button_signout);
+        imageView = drawer_xml.findViewById(R.id.user_image);
+        name = drawer_xml.findViewById(R.id.user_name);
+        email = drawer_xml.findViewById(R.id.user_mail);
+        id = drawer_xml.findViewById(R.id.user_id);
+        signout = drawer_xml.findViewById(R.id.button_signout);
         signout.setOnClickListener(new View.OnClickListener()
         {
             @Override

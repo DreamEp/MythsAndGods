@@ -36,7 +36,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 WebViewFragment tab2 = new WebViewFragment();
                 return tab2;
             case 2:
-                CategoryFragment tab3 = new CategoryFragment();
+                DivinityFragment tab3 = new DivinityFragment();
                 return tab3;
             default:
                 return null;
