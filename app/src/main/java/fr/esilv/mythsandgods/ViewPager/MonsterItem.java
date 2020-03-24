@@ -6,10 +6,12 @@ public class MonsterItem implements Serializable {
     private String name;
     private String title;
     private String presentation;
+    private String picture;
 
-    public MonsterItem(String name, String title, String presentation) {
+    public MonsterItem(String name, String title, String picture, String presentation) {
         this.name = name;
         this.title = title;
+        this.picture = picture;
         this.presentation = presentation;
     }
 
@@ -30,6 +32,14 @@ public class MonsterItem implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String getPresentation() {

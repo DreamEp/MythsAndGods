@@ -9,6 +9,7 @@ import fr.esilv.mythsandgods.ViewPager.MonsterItem;
 
 public class CategoryItem implements Serializable {
 
+    private int id;
     private String category_name;
     private String category_picture;
     private String category_summary;
@@ -16,7 +17,8 @@ public class CategoryItem implements Serializable {
     private ArrayList<DivinityItem> divinity_list;
     private ArrayList<MonsterItem> monster_list;
 
-    public CategoryItem(String category_name, String category_picture, String category_summary, String website, ArrayList<DivinityItem> divinity_list, ArrayList<MonsterItem> monster_list) {
+    public CategoryItem(String category_name, String category_picture, String category_summary, String website, ArrayList<DivinityItem> divinity_list, ArrayList<MonsterItem> monster_list, int id) {
+        this.id =id;
         this.category_name = category_name;
         this.category_picture = category_picture;
         this.category_summary = category_summary;
@@ -26,6 +28,14 @@ public class CategoryItem implements Serializable {
     }
 
     public CategoryItem() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategory_name() {
