@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "579861397341",
+    "firebase_url": "https://mythsandgods-2c9d2.firebaseio.com",
+    "project_id": "mythsandgods-2c9d2",
+    "storage_bucket": "mythsandgods-2c9d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579861397341:android:405bb5f1958d12939332b4",
+        "android_client_info": {
+          "package_name": "fr.esilv.mythsandgods"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579861397341-bm5npepcpdbdvq61mveiavkvfl74rfk0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.esilv.mythsandgods",
+            "certificate_hash": "e08873f18fd58dba7709f68319ab79dbe907f459"
+          }
+        },
+        {
+          "client_id": "579861397341-q7ofjr1alb062kjlr233ob4mtnuhpapj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxvJqQgdL4QtfNH3h7tsrL3djJL7fIUaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579861397341-q7ofjr1alb062kjlr233ob4mtnuhpapj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
