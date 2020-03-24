@@ -11,8 +11,6 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity">
             <intent-filter>

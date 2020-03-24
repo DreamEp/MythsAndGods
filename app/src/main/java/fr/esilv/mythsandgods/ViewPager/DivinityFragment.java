@@ -55,8 +55,6 @@ public class DivinityFragment extends Fragment {
 
         final ArrayList<DivinityItem> divinityList = new ArrayList<>();
 
-
-
         id = getArguments().getInt("key_id");
 
         category = getRef(id);
@@ -73,17 +71,20 @@ public class DivinityFragment extends Fragment {
                 }
                 DivinityAdapter mAdapter;
                 mAdapter = new DivinityAdapter(divinityList);
-                /*mAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
+                mAdapter.setOnItemClickListener(new DivinityAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-                        Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
-                        intent.putExtra("key_category", categoryList.get(position).getCategory_name());
-                        startActivity(intent);
+                        String website = divinityList.get(position).getPresentation();
+                        WebViewDFragment nextFrag = new WebViewDFragment();
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.relative_layout_divinity_list, nextFrag, "findThisFragment")
+                                .addToBackStack(null)
+                                .commit();
                         //OpenViewPagerActivity();
                         //categoryList.get(position).changeText1("Clicked");
                         //mAdapter.notifyItemChanged(position);
                     }
-                });*/
+                });
                 mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
                 mRecyclerView.setHasFixedSize(true);
                 mLayoutManager = new GridLayoutManager(getActivity(),3);

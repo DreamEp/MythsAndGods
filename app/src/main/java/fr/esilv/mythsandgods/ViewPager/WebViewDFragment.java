@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import fr.esilv.mythsandgods.R;
 
-public class WebViewFragment extends Fragment {
+public class WebViewDFragment extends Fragment {
     private WebView mWebView;
     private String website;
     @Nullable
@@ -24,13 +24,13 @@ public class WebViewFragment extends Fragment {
         website = getArguments().getString("key_website");
 
         mWebView = (WebView) v.findViewById(R.id.webview);
+        mWebView.loadUrl(website);
 
         //enable javascript
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         //force links and redirects to open in the webview instead of new browser
-        mWebView.loadUrl(website);
         mWebView.setWebViewClient(new WebViewClient());
 
         return v;

@@ -52,6 +52,7 @@ public class CategoryActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -61,7 +62,7 @@ public class CategoryActivity extends AppCompatActivity implements NavigationVie
         name = drawer_xml.findViewById(R.id.user_name);
         email = drawer_xml.findViewById(R.id.user_mail);
         id = drawer_xml.findViewById(R.id.user_id);
-        signout = drawer_xml.findViewById(R.id.button_signout);
+        /*signout = drawer_xml.findViewById(R.id.button_signout);
         signout.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -73,7 +74,7 @@ public class CategoryActivity extends AppCompatActivity implements NavigationVie
                 }
             }
 
-        });
+        });*/
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
 
@@ -82,6 +83,7 @@ public class CategoryActivity extends AppCompatActivity implements NavigationVie
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
+            personPhoto.toString();
 
             name.setText(personName);
             email.setText(personEmail);
