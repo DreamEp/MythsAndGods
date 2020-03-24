@@ -1,19 +1,26 @@
-package fr.esilv.mythsandgods;
+package fr.esilv.mythsandgods.Category;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
+
+import fr.esilv.mythsandgods.R;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
     private ArrayList<CategoryItem> mCategoryList;
     private OnItemClickListener mListener;
+    private ProgressBar mProgressbar;
 
     public interface  OnItemClickListener{
         void onItemClick(int position);
@@ -26,13 +33,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public static class CategoryViewHolder extends RecyclerView.ViewHolder{
         public ImageView mImageView;
         public TextView mTextView1;
-        //public TextView mTextView2;
 
         public CategoryViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
-            //mTextView2 = itemView.findViewById(R.id.textView2);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -63,9 +68,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         CategoryItem currentItem = mCategoryList.get(position);
-        holder.mImageView.setImageResource(currentItem.getImageResource());
-        holder.mTextView1.setText(currentItem.getText1());
-        //holder.mTextView2.setText(currentItem.getText2());
+        Glide.with(holder.itemView.getContext()).load(currentItem.getCategory_picture()).into(holder.mImageView);
+        holder.mTextView1.setText(currentItem.getCategory_name());
+
+        //mProgressbar.setVisibility(View.GONE);
     }
 
     @Override

@@ -1,0 +1,124 @@
+[
+{
+	"category_name": "Mythologie nordique",
+	"category_picture": "https://wallpaperplay.com/walls/full/0/a/7/6531.jpg",
+	"category_summary": "La mythologie nordique est l'ensemble des mythes provenant d'Europe du Nord (plus particulièrement de la Scandinavie et de l'Islande) à la base du système religieux polythéiste pratiqué dans ces régions au haut Moyen Âge avant leur christianisation. Il s'agit d'une variante régionale et historique de la plus vaste mythologie germanique, qui fait elle-même partie de la mythologie conjecturelle indo-européenne dont d'autres variantes sont la mythologie grecque ou encore la mythologie iranienne, et qui a donné lieu à de nombreuses spéculations pseudo-historiques. Comme les autres, la mythologie nordique met en scène un nombre important de divinités, de créatures fabuleuses et de héros.\nPendant des siècles, les mythes nordiques étaient transmis oralement, notamment par la poésie scaldique qui éleva la narration d'épopées mythologiques en une expression artistique. Un certain nombre de ces poèmes mythologiques a été compilé au xiiie siècle dans l'Edda poétique. L'historien islandais chrétien Snorri Sturluson s'est servi de la culture orale ancienne pour rédiger son Edda en Prose au xiiie siècle. Ces sources constituent la majorité de nos connaissances sur cette mythologie, complétées par quelques sagas nordiques (dont la plus importante est la Völsunga saga) et textes evhéméristes (comme la Geste des Danois).\nLongtemps oubliée, cette mythologie a été redécouverte dès le xviiie siècle avec le courant romantique en Europe. Si ces sources demeurent contestées pour de possibles influences chrétiennes, elles mettent en lumière un univers très riche et vaste sur les croyances nordiques anciennes.",
+	"site": "https://fr.wikipedia.org/wiki/Mythologie_nordique",
+	"divinity_list": [{
+			"name": "Odin",
+			"title": "Dieu des Dieu",
+			"picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvVRYBnwDqGYvCNGP5O3uCApKUDAgOfMjSDLSrvJ5R0zNweL1p",
+			"presentation": "https://fr.wikipedia.org/wiki/Odin",
+			"favorite": "false"
+		},
+		{
+			"name": "Thor",
+			"title": "Dieu de la foudre",
+			"picture": "https://wallpaperaccess.com/full/762427.jpg",
+			"presentation": "https://fr.wikipedia.org/wiki/Thor",
+			"favorite": "false"
+		},
+		{
+			"name": "Loki",
+			"title": "Dieu du feu, de la discorde et de la sournoiserie",
+			"picture": "https://i.pinimg.com/originals/7c/5a/be/7c5abef430dfe6aa885021e77ce796db.jpg",
+			"presentation": "https://fr.wikipedia.org/wiki/Loki",
+			"favorite": "false"
+		},
+		{
+			"name": "Sif",
+			"title": "Déesse du grain",
+			"picture": "https://cdn.hipwallpaper.com/i/88/46/QZYFe8.png",
+			"presentation": "https://fr.wikipedia.org/wiki/Sif_(d%C3%A9esse)",
+			"favorite": "false"
+		}
+	],
+	"monster_list": [{
+			"name": "Ymir",
+			"title": "Geant originel",
+			"presentation": "https://fr.wikipedia.org/wiki/Ymir"
+		},
+		{
+			"name": "Fenrir",
+			"title": "Loup monstrueux",
+			"presentation": "https://fr.wikipedia.org/wiki/Fenrir"
+		}
+	]
+	},
+	{
+		"category_name": "Mythologie grecque",
+		"category_picture": "https://cutewallpaper.org/21/viking-wallpapers/Viking-Wallpaper-17-1920-X-1080-stmed.net.jpg",
+		"category_summary": "La mythologie grecque, c'est-à-dire l'ensemble organisé des mythes provenant de la Grèce antique, se développe au cours d'une très longue période allant de la civilisation mycénienne jusqu'à la domination romaine. La rencontre entre les Grecs et les Romains coïncide avec celle de la mythologie grecque et de la mythologie romaine : la première exerce une forte influence sur la seconde, qui ne s'y réduit pas pour autant. Longtemps après la disparition des religions grecque et romaine, la mythologie grecque est utilisée comme sujet d'inspiration par les artistes, et continue à l'être de nos jours.\nLa mythologie grecque nous est parvenue grâce à un vaste ensemble de textes dont les plus anciens sont les épopées d'Homère et les poèmes d'Hésiode, principalement la Théogonie, mais aussi par les arts picturaux comme la céramique ou par les monuments sacrés. L'ensemble de ces sources présente des généalogies et des récits qui forment un système doté d'une cohérence limitée. Les mythes grecs témoignent de la représentation que les anciens Grecs se faisaient du monde. Néanmoins, le statut de la mythologie grecque est complexe, car la mythologie dépasse le cadre de la religion. Les personnages et les événements mythiques rapportés par la tradition étaient pour les Grecs, du moins dans leurs grandes lignes, des réalités historiques relevant d'un passé lointain et servaient donc de base de travail aux historiens antiques. Dans le même temps, la mythologie fournit une ample source d'inspiration à la littérature et aux arts grecs antiques.",
+		"site": "https://fr.wikipedia.org/wiki/Mythologie_grecque",
+		"divinity_list": [
+			{
+				"name": "Zeus",
+				"title": "Roi des dieux",
+				"picture": "https://static.wixstatic.com/media/e9cce2_d739383092cf442e96bd6e0f33cd62bf.jpg/v1/fill/w_639,h_360,al_c,q_85,usm_0.66_1.00_0.01/e9cce2_d739383092cf442e96bd6e0f33cd62bf.webp",
+				"presentation": "https://fr.wikipedia.org/wiki/Zeus",
+				"favorite": "false"
+			},
+			{
+				"name": "Héra",
+				"title": "Déesse de la fidélité",
+				"picture": "https://steamuserimages-a.akamaihd.net/ugc/937205027827507272/F467DD98061E0696A0B8D26430886D0D56DAD3B0/",
+				"presentation": "https://fr.wikipedia.org/wiki/H%C3%A9ra",
+				"favorite": "false"
+			},
+			{
+				"name": "Poséidon",
+				"title": "Dieu de la mer",
+				"picture": "https://vignette.wikia.nocookie.net/omniversal-battlefield/images/7/79/Poseidon.jpg/revision/latest?cb=20190623235226",
+				"presentation": "https://fr.wikipedia.org/wiki/Pos%C3%A9idon",
+				"favorite": "false"
+			},
+			{
+				"name": "Hadès",
+				"title": "Dieu des morts",
+				"picture": "https://data2.1freewallpapers.com/download/smite-hades-art-1920x1080.jpg",
+				"presentation": "https://fr.wikipedia.org/wiki/Had%C3%A8s",
+				"favorite": "false"
+			},
+			{
+				"name": "Athèna",
+				"title": "Déesse de l'intelligence guerrière",
+				"picture": "https://i0.wp.com/wallur.com/wp-content/uploads/2016/12/smite-background-3.jpg?fit=1920%2C1080",
+				"presentation": "https://fr.wikipedia.org/wiki/Ath%C3%A9na",
+				"favorite": "false"
+			},
+			{
+				"name": "Artémis",
+				"title": "Déesse de la chasse et des animaux",
+				"picture": "https://cdn.hipwallpaper.com/i/21/86/6c83y2.jpg",
+				"presentation": "https://fr.wikipedia.org/wiki/Art%C3%A9mis",
+				"favorite": "false"
+			},
+			{
+				"name": "Aphrodite",
+				"title": "Déesse de l'amour",
+				"picture": "https://wallpaperset.com/w/full/3/e/6/75440.jpg",
+				"presentation": "https://fr.wikipedia.org/wiki/Aphrodite",
+				"favorite": "false"
+			},
+			{
+				"name": "Arès",
+				"title": "Dieux de la guerre",
+				"picture": "https://www.wallpaperflare.com/static/402/1018/552/warrior-ares-dark-fantasy-demon-wallpaper.jpg",
+				"presentation": "https://fr.wikipedia.org/wiki/Ar%C3%A8s",
+				"favorite": "false"
+			}
+		],
+		"monster_list": [
+			{
+				"name": "Talos",
+				"title": "Geant protecteur de Europe",
+				"presentation": "https://fr.wikipedia.org/wiki/Talos_(Cr%C3%A8te)"
+			},
+			{
+				"name": "Polyphème",
+				"title": "Cyclope",
+				"presentation": "https://fr.wikipedia.org/wiki/Polyph%C3%A8me"
+			}
+		]
+	}
+]
