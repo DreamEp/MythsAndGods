@@ -12,5 +12,5 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="message_account">Déjà un compte ? Connectez vous ici</string>
     <string name="message_account2">Pas de compte encore ? Enregistrez vous ici</string>
-    <string name="welcome_message" >Bienvenue ! Vous êtes connecté</string>
+    <string name="welcome_message">Bienvenue ! Vous êtes connecté</string>
 </resources>

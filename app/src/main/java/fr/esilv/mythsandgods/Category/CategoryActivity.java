@@ -24,6 +24,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import fr.esilv.mythsandgods.R;
 
@@ -46,48 +48,30 @@ public class CategoryActivity extends AppCompatActivity implements NavigationVie
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        View drawer_xml = getLayoutInflater().inflate(R.layout.nav_header, null);
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
+        FirebaseUser acct = FirebaseAuth.getInstance().getCurrentUser();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        imageView = drawer_xml.findViewById(R.id.user_image);
-        name = drawer_xml.findViewById(R.id.user_name);
-        email = drawer_xml.findViewById(R.id.user_mail);
-        id = drawer_xml.findViewById(R.id.user_id);
-        /*signout = drawer_xml.findViewById(R.id.button_signout);
-        signout.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    // ...
-                    case R.id.button_signout:
-                        signOut();
-                }
-            }
 
-        });*/
+        imageView = header.findViewById(R.id.user_image);
+        name = header.findViewById(R.id.user_name);
+        email = header.findViewById(R.id.user_mail);
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
 
         if (acct != null) {
             String personName = acct.getDisplayName();
             String personEmail = acct.getEmail();
-            String personId = acct.getId();
+            //String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
             personPhoto.toString();
 
             name.setText(personName);
             email.setText(personEmail);
-            id.setText(personId);
             Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
         }
 

@@ -21,13 +21,16 @@ public class DivinityAdapter extends RecyclerView.Adapter<DivinityAdapter.Divini
     private ArrayList<DivinityItem> mDivinityList;
     private DivinityAdapter.OnItemClickListener mListener;
 
+
     public interface  OnItemClickListener{
         void onItemClick(int position);
+        void onFavoriteClick(int position);
     }
 
     public void setOnItemClickListener(DivinityAdapter.OnItemClickListener listener) {
         mListener = listener;
     }
+
 
     public static class DivinityViewHolder extends RecyclerView.ViewHolder{
         public ImageView mImageView;
@@ -35,14 +38,26 @@ public class DivinityAdapter extends RecyclerView.Adapter<DivinityAdapter.Divini
         public ImageView mImageFavorite;
         public TextView mTextView2;
 
-        public DivinityViewHolder(@NonNull View itemView, final DivinityAdapter.OnItemClickListener listener) {
+        public DivinityViewHolder(@NonNull final View itemView, final DivinityAdapter.OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
             mTextView2 = itemView.findViewById(R.id.textView2);
             mImageFavorite = itemView.findViewById(R.id.image_favorite);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            mImageFavorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onFavoriteClick((position));
+                        }
+                    }
+                }
+            });
+
+            mImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
@@ -53,6 +68,31 @@ public class DivinityAdapter extends RecyclerView.Adapter<DivinityAdapter.Divini
                     }
                 }
             });
+
+            mTextView2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick((position));
+                        }
+                    }
+                }
+            });
+
+            mTextView1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick((position));
+                        }
+                    }
+                }
+            });
+
         }
     }
 
@@ -75,6 +115,7 @@ public class DivinityAdapter extends RecyclerView.Adapter<DivinityAdapter.Divini
         Glide.with(holder.itemView.getContext()).load(currentItem.getPicture()).into(holder.mImageView);
         holder.mTextView1.setText(currentItem.getName());
         holder.mTextView2.setText(currentItem.getTitle());
+        if(currentItem.isFavorite()) holder.mImageFavorite.setImageResource(R.drawable.ic_favorite_plein);
     }
 
     @Override

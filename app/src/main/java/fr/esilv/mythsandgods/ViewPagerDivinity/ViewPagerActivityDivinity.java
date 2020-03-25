@@ -1,20 +1,19 @@
-package fr.esilv.mythsandgods.ViewPager;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
+package fr.esilv.mythsandgods.ViewPagerDivinity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 
 import fr.esilv.mythsandgods.Category.CategoryActivity;
 import fr.esilv.mythsandgods.R;
 
-public class ViewPagerActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
+public class ViewPagerActivityDivinity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 
     //This is our tablayout
     private TabLayout tabLayout;
@@ -30,21 +29,20 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager);
 
-        String category_name = getIntent().getStringExtra("key_category_name");
+        String divinity_name = getIntent().getStringExtra("key_name");
+        String divinity_title = getIntent().getStringExtra("key_title");
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(category_name);
+        getSupportActionBar().setTitle(divinity_name + " : " +divinity_title);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_home);
-
 
 
         //Initializing the tablayout
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
         //Adding the tabs using addTab() method
-        tabLayout.addTab(tabLayout.newTab());
-        tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -54,10 +52,8 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         //Creating our pager adapter
-        int id = getIntent().getIntExtra("key_id",0);
         String website = getIntent().getStringExtra("key_website");
-        String summary = getIntent().getStringExtra("key_summary");
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), id, website, summary);
+        ViewPagerAdapterDivinity adapter = new ViewPagerAdapterDivinity(getSupportFragmentManager(), tabLayout.getTabCount(), website, divinity_title);
 
         //Adding adapter to pager
         viewPager.setAdapter(adapter);
@@ -69,7 +65,7 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewPagerActivity.this, CategoryActivity.class);
+                Intent intent = new Intent(ViewPagerActivityDivinity.this, CategoryActivity.class);
                 startActivity(intent);
             }
         });

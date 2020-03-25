@@ -5,14 +5,14 @@ import java.io.Serializable;
 public class MonsterItem implements Serializable {
     private String name;
     private String title;
-    private String presentation;
+    private String website;
     private String picture;
 
-    public MonsterItem(String name, String title, String picture, String presentation) {
+    public MonsterItem(String name, String title, String picture, String website) {
         this.name = name;
         this.title = title;
         this.picture = picture;
-        this.presentation = presentation;
+        this.website = website;
     }
 
     public MonsterItem() {
@@ -42,11 +42,11 @@ public class MonsterItem implements Serializable {
         this.picture = picture;
     }
 
-    public String getPresentation() {
-        return presentation;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setPresentation(String presentation) {
-        this.presentation = presentation;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 }

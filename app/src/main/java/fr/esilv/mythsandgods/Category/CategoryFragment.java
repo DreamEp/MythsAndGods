@@ -59,7 +59,7 @@ public class CategoryFragment extends Fragment {
                         intent.putExtra("key_id", categoryList.get(position).getId());
                         intent.putExtra("key_website",categoryList.get(position).getWebsite());
                         intent.putExtra("key_summary", categoryList.get(position).getCategory_summary());
-                        //intent.putExtra("key_category1", categoryList.get(position).getCategory_name());
+                        intent.putExtra("key_category_name", categoryList.get(position).getCategory_name());
                         startActivity(intent);
                         //OpenViewPagerActivity();
                         //categoryList.get(position).changeText1("Clicked");

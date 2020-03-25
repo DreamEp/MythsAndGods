@@ -22,6 +22,7 @@
             android:elevation="4dp"
             android:theme="@style/AppTheme.AppBarOverlay"
             app:title="@string/app_name"
+            app:titleMarginStart="25dp"
             app:titleTextColor="@color/color_logo"/>
 
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -21,11 +22,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import fr.esilv.mythsandgods.Category.CategoryActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button signout;
     SignInButton signin;
     GoogleSignInClient mGoogleSignInClient;
 
@@ -41,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -48,7 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
+        signout = findViewById(R.id.signout);
+        signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+            }
+        });
         signin = findViewById(R.id.google_button);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -74,7 +89,13 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
+
+                if (account != null) {
+                    firebaseAuthWithGoogle(account);
+                } else{
+                    Toast.makeText(MainActivity.this, "Sign-in failed, try again later.", Toast.LENGTH_LONG).show();
+                }
+
                 //handleSignInResult(task);
             } catch (ApiException e){
 
@@ -91,7 +112,23 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = auth.getCurrentUser();
+                            String user_id = auth.getCurrentUser().getUid();
+                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("USERS").child(user_id);
+
+                            String user_email = auth.getCurrentUser().getEmail();
+                            String user_phone = auth.getCurrentUser().getPhoneNumber();
+                            String user_photo = auth.getCurrentUser().getPhotoUrl().toString();
+                            String user_name = auth.getCurrentUser().getDisplayName();
+
+                            Map newPost = new HashMap();
+                            newPost.put("name", user_name);
+                            newPost.put("email", user_email);
+                            newPost.put("photo",user_photo);
+                            newPost.put("phone", user_phone);
+
+                            current_user_db.setValue(newPost);
+
+
                             Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(),"Connexion réussis", Toast.LENGTH_SHORT).show();

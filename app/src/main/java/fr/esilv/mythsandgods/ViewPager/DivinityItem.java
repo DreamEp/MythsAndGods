@@ -1,19 +1,21 @@
 package fr.esilv.mythsandgods.ViewPager;
 
+
 import java.io.Serializable;
+
 
 public class DivinityItem implements Serializable {
     private String name;
     private String title;
     private String picture;
-    private String presentation;
+    private String website;
     private boolean favorite;
 
-    public DivinityItem(String name, String titre, String picture, String presentation, boolean favorite) {
+    public DivinityItem(String name, String titre, String picture, String website, boolean favorite) {
         this.name = name;
         this.title = titre;
         this.picture = picture;
-        this.presentation = presentation;
+        this.website = website;
         this.favorite = favorite;
     }
 
@@ -44,12 +46,12 @@ public class DivinityItem implements Serializable {
         this.picture = picture;
     }
 
-    public String getPresentation() {
-        return presentation;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setPresentation(String presentation) {
-        this.presentation = presentation;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public boolean isFavorite() {

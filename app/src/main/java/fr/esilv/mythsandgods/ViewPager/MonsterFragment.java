@@ -1,5 +1,6 @@
 package fr.esilv.mythsandgods.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import fr.esilv.mythsandgods.R;
+import fr.esilv.mythsandgods.ViewPagerDivinity.ViewPagerActivityDivinity;
+import fr.esilv.mythsandgods.ViewPagerMonster.ViewPagerActivityMonster;
+import fr.esilv.mythsandgods.ViewPagerMonster.ViewPagerAdapterMonster;
 
 public class MonsterFragment extends Fragment {
     private RecyclerView mRecyclerView;
@@ -72,17 +76,16 @@ public class MonsterFragment extends Fragment {
                 }
                 MonsterAdapter mAdapter;
                 mAdapter = new MonsterAdapter(monsterList);
-                /*mAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
+                mAdapter.setOnItemClickListener(new MonsterAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-                        Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
-                        intent.putExtra("key_category", categoryList.get(position).getCategory_name());
+                        Intent intent = new Intent(getActivity(), ViewPagerActivityMonster.class);
+                        intent.putExtra("key_website",monsterList.get(position).getWebsite());
+                        intent.putExtra("key_name", monsterList.get(position).getName());
+                        intent.putExtra("key_title", monsterList.get(position).getTitle());
                         startActivity(intent);
-                        //OpenViewPagerActivity();
-                        //categoryList.get(position).changeText1("Clicked");
-                        //mAdapter.notifyItemChanged(position);
                     }
-                });*/
+                });
                 mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
                 mRecyclerView.setHasFixedSize(true);
                 mLayoutManager = new GridLayoutManager(getActivity(),3);

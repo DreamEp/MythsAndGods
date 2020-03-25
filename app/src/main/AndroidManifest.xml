@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity">
+        <activity android:name=".ViewPagerMonster.ViewPagerActivityMonster"/>
+        <activity android:name=".ViewPagerDivinity.ViewPagerActivityDivinity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,11 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewPager.ViewPagerActivity" />
-        <activity android:name=".ViewPager.WebViewFragment" />
         <activity
             android:name=".Category.CategoryActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
