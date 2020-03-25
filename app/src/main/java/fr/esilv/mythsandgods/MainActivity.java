@@ -22,8 +22,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -106,32 +109,55 @@ public class MainActivity extends AppCompatActivity {
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
 
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            String user_id = auth.getCurrentUser().getUid();
-                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("USERS").child(user_id);
+                            final String user_id = auth.getCurrentUser().getUid();
+                            final DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("USERS").child(user_id);
 
-                            String user_email = auth.getCurrentUser().getEmail();
-                            String user_phone = auth.getCurrentUser().getPhoneNumber();
-                            String user_photo = auth.getCurrentUser().getPhotoUrl().toString();
-                            String user_name = auth.getCurrentUser().getDisplayName();
+                            current_user_db.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.getValue() != null) {
+                                        //user exists, do something
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                                        startActivity(intent);
+                                        Toast.makeText(getApplicationContext(),"Connexion réussis", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        //user does not exist, do something else
+                                        String user_email = auth.getCurrentUser().getEmail();
+                                        String user_phone = auth.getCurrentUser().getPhoneNumber();
+                                        String user_photo = auth.getCurrentUser().getPhotoUrl().toString();
+                                        String user_name = auth.getCurrentUser().getDisplayName();
 
-                            Map newPost = new HashMap();
-                            newPost.put("name", user_name);
-                            newPost.put("email", user_email);
-                            newPost.put("photo",user_photo);
-                            newPost.put("phone", user_phone);
+                                        Map newPost = new HashMap();
+                                        newPost.put("name", user_name);
+                                        newPost.put("email", user_email);
+                                        newPost.put("photo",user_photo);
+                                        newPost.put("phone", user_phone);
 
-                            current_user_db.setValue(newPost);
+                                        current_user_db.setValue(newPost);
 
 
-                            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(getApplicationContext(),"Connexion réussis", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                                        startActivity(intent);
+                                        Toast.makeText(getApplicationContext(),"Création bien réussis", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+
+
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(getApplicationContext(),"Connection impossible", Toast.LENGTH_SHORT).show();
