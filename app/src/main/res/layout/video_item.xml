@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="5dp">
+
+        <RelativeLayout
+            android:background="@color/color_gray"
+            android:id="@+id/relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.youtube.player.YouTubeThumbnailView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@android:color/darker_gray"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imageView"
+                android:layout_marginTop="6dp"
+                android:paddingLeft="30dp"
+                android:text="Line 1"
+                android:paddingTop="20dp"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imageView"
+                android:layout_below="@id/textView"
+                android:layout_marginTop="6dp"
+                android:paddingLeft="30dp"
+                android:text="Line 1"/>
+
+        </RelativeLayout>
+</androidx.cardview.widget.CardView>

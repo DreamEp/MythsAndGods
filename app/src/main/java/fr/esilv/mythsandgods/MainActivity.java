@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+        startActivity(intent);
 
 
 
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
                             Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
                             startActivity(intent);
-                            Toast.makeText(getApplicationContext(),"Connexion réussis", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Connexion réussie", Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(getApplicationContext(),"Connection impossible", Toast.LENGTH_SHORT).show();

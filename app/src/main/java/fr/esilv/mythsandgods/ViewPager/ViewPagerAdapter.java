@@ -15,7 +15,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private int tabCount;
     private String website;
     private String summary;
-    private String[] tabTitles = new String[] {"Résumé", "Site", "Divinités", "Monstres"};
+
+    private String[] tabTitles = new String[] {"Résumé", "Site", "Divinités", "Monstres", "Vidéos"};
 
     public ViewPagerAdapter(FragmentManager fm, int tabCount ,int id, String website, String summary) {
         super(fm);
@@ -24,6 +25,10 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         this.id=id;
         this.website=website;
         this.summary=summary;
+
+        //A décommenter
+        //this.videoListString = videoListString;
+        //videoList = videoListString.split(";");
     }
 
     @Override
@@ -59,6 +64,13 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 bundle4.putInt("key_id",id);
                 tab4.setArguments(bundle4);
                 return tab4;
+            case 4:
+                VideoFragment tab5 = new VideoFragment();
+                Bundle bundle5 = new Bundle();
+                bundle5.putInt("key_id", id);
+                return tab5;
+
+
             default:
                 return null;
         }

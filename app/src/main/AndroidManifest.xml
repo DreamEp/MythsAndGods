@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ViewPagerMonster.ViewPagerActivityMonster"/>
         <activity android:name=".ViewPagerDivinity.ViewPagerActivityDivinity" />
+        <activity android:name=".ViewPager.YouTube_Player_Activity" android:screenOrientation="landscape"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

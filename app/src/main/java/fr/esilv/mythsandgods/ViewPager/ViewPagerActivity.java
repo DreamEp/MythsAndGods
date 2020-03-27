@@ -11,6 +11,8 @@ import android.view.View;
 import com.google.android.material.tabs.TabLayout;
 
 
+import java.lang.reflect.Array;
+
 import fr.esilv.mythsandgods.Category.CategoryActivity;
 import fr.esilv.mythsandgods.R;
 
@@ -47,6 +49,7 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
+        tabLayout.addTab(tabLayout.newTab());
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
@@ -57,6 +60,10 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         int id = getIntent().getIntExtra("key_id",0);
         String website = getIntent().getStringExtra("key_website");
         String summary = getIntent().getStringExtra("key_summary");
+
+        //Ajouter ici le string de la liste d'url vidéos séparées par un ';'
+        //String videoListString = getIntent().getStringExtra("key_videoList");
+
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), id, website, summary);
 
         //Adding adapter to pager
