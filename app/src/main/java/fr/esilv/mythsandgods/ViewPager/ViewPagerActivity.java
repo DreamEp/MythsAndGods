@@ -5,6 +5,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -32,12 +34,18 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager);
 
+        int id = getIntent().getIntExtra("key_id",0);
         String category_name = getIntent().getStringExtra("key_category_name");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(category_name);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_home);
+        //Change Color
+        /*ColorDrawable color1 = new ColorDrawable(Color.parseColor("#9FCAEE"));
+        if(id == 1) getSupportActionBar().setBackgroundDrawable(color1);
+        ColorDrawable color2 = new ColorDrawable(Color.parseColor("#9c732f"));
+        if(id == 2) getSupportActionBar().setBackgroundDrawable(color2);*/
 
 
 
@@ -51,13 +59,14 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
+        //Change color
+        //if(id == 1) tabLayout.setBackgroundColor(Color.parseColor("#9FCAEE"));
+        //if(id == 2) tabLayout.setBackgroundColor(Color.parseColor("#9c732f"));
 
         //Initializing viewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         //Creating our pager adapter
-        int id = getIntent().getIntExtra("key_id",0);
         String website = getIntent().getStringExtra("key_website");
         String summary = getIntent().getStringExtra("key_summary");
 

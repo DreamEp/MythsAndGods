@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="176dp"
     android:layout_gravity="bottom"
-    android:background="@drawable/login"
+    android:background="@drawable/header_image"
     android:orientation="vertical"
     android:padding="1dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">

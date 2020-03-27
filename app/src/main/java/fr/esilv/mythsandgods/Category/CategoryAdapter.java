@@ -1,5 +1,7 @@
 package fr.esilv.mythsandgods.Category;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,12 +67,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return cvh;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         CategoryItem currentItem = mCategoryList.get(position);
+        int id = currentItem.getId();
         Glide.with(holder.itemView.getContext()).load(currentItem.getCategory_picture()).into(holder.mImageView);
         holder.mTextView1.setText(currentItem.getCategory_name());
-
+        //if(id == 1) holder.mTextView1.setBackgroundColor(Color.parseColor("#9FCAEE"));
+        //if(id == 2) holder.mTextView1.setBackgroundColor(Color.parseColor("#9c732f"));
         //mProgressbar.setVisibility(View.GONE);
     }
 

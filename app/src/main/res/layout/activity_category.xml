@@ -43,6 +43,7 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu"
+        android:background="@color/color_gray"
         app:itemIconTint="@color/color_logo"
         app:itemTextColor="@color/color_black"/>
 
