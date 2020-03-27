@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -47,10 +48,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+
         auth = FirebaseAuth.getInstance();
-
-
-
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -70,7 +70,14 @@ public class MainActivity extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
+                signin.setVisibility(View.GONE);
+                signout.setVisibility(View.GONE);
                 signIn();
+                /*
+                findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                signin.setVisibility(View.VISIBLE);
+                signout.setVisibility(View.VISIBLE);*/
             }
         });
 
