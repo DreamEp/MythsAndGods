@@ -6,15 +6,17 @@ import java.io.Serializable;
 public class VideoItem implements Serializable {
     //Déclarer éléments de l'item
     private String name;
-    private int id;
     private String description;
     private String url;
 
-    public VideoItem(String url, String name, int id)
+    public VideoItem(String url, String name, String description)
     {
         this.url = url;
         this.name = name;
-        this.id = id;
+        this.description = description;
+    }
+
+    public VideoItem() {
     }
 
     public String getName() {
@@ -26,14 +28,6 @@ public class VideoItem implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return name;
-    }
-
-    public void setId(String name) {
         this.name = name;
     }
 

@@ -56,13 +56,8 @@ public class VideoFragment extends Fragment {
     private VideoAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private YouTubePlayerSupportFragment youTubePlayerFragment;
 
     DatabaseReference reff_videoList;
-
-    private String[] videoListURL = new String[] {"SUwbg9YA4lc","7YxsCCj5NC8","Ns92r5TQH3k","McxBMyA_3f0"};
-    private String[] videoListTitles = new String[] {"Etienne Klein à CentraleSupélec","C'est pas sorcier -POULPES FICTION","Un éléphant qui se balançait","Boss All Stars - Freestyle"};
-
     int id;
     String category;
 
@@ -91,7 +86,7 @@ public class VideoFragment extends Fragment {
 
 
 
-        /*
+
         final ArrayList<VideoItem> videoList = new ArrayList<>();
 
 
@@ -112,16 +107,20 @@ public class VideoFragment extends Fragment {
 
                 final VideoAdapter mAdapter;
                 mAdapter = new VideoAdapter(videoList);
+                mAdapter.notifyDataSetChanged();
                 mAdapter.setOnItemClickListener(new VideoAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-
-
+                        Intent intent = new Intent(getActivity(), YouTube_Player_Activity.class);
+                        Bundle b = new Bundle();
+                        b.putString("videoURL", videoList.get(position).getUrl());
+                        intent.putExtras(b);
+                        startActivity(intent);
                     }
                 });
                 mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
                 mRecyclerView.setHasFixedSize(true);
-                mLayoutManager = new GridLayoutManager(getActivity(),3);
+                mLayoutManager = new LinearLayoutManager(getActivity());
                 mRecyclerView.setLayoutManager(mLayoutManager);
                 mRecyclerView.setAdapter(mAdapter);
             }
@@ -132,41 +131,7 @@ public class VideoFragment extends Fragment {
             }
 
 
-        });*/
-
-        //------------------------------------------------------------------------
-
-        final ArrayList<VideoItem> videoList = new ArrayList<>();
-
-        for(int i = 0; i < 4; i++)
-        {
-            //ID à déclarer ailleurs
-            int id = 0;
-            VideoItem v = new VideoItem(videoListURL[i], videoListTitles[i], id);
-            videoList.add(v);
-        }
-
-        mAdapter = new VideoAdapter(videoList);
-        mAdapter.notifyDataSetChanged();
-        mAdapter.setOnItemClickListener(new VideoAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent(getActivity(), YouTube_Player_Activity.class);
-                Bundle b = new Bundle();
-                b.putString("videoURL", videoList.get(position).getUrl());
-                intent.putExtras(b);
-                startActivity(intent);
-            }
         });
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-
-        //------------------------------------------------------------------------
-
         return view;
     }
 }

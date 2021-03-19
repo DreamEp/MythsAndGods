@@ -1,8 +1,6 @@
 package fr.esilv.mythsandgods.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.LinearLayout;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;

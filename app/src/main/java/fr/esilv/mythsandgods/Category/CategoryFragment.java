@@ -29,6 +29,7 @@ public class CategoryFragment extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
 
 
+
     DatabaseReference reff_category;
 
 

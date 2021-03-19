@@ -1,11 +1,13 @@
 package fr.esilv.mythsandgods.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
@@ -56,12 +58,15 @@ public class DivinityFragment extends Fragment {
         else return category;
     }
 
+    RelativeLayout divinity_item;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_list_divinity, container, false);
         final View view2 = inflater.inflate(R.layout.divinity_item, container, false);
+
+        //divinity_item =  (RelativeLayout) getView().findViewById(R.id.relative_layout);
 
         final ArrayList<DivinityItem> divinityList = new ArrayList<>();
 
@@ -70,6 +75,9 @@ public class DivinityFragment extends Fragment {
 
         category = getRef(id);
         reff_divinity = FirebaseDatabase.getInstance().getReference().child("CATEGORY").child(category).child("divinity_list");
+
+        //if(id == 1) divinity_item.setBackgroundColor(Color.parseColor("#9FCAEE"));
+        //if(id == 2) divinity_item.setBackgroundColor(Color.parseColor("#9c732f"));
 
         reff_divinity.addValueEventListener(new ValueEventListener() {
             @Override

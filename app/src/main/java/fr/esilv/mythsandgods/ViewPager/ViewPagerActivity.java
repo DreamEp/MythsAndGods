@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -29,6 +31,7 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +44,6 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         getSupportActionBar().setTitle(category_name);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_home);
-        //Change Color
-        /*ColorDrawable color1 = new ColorDrawable(Color.parseColor("#9FCAEE"));
-        if(id == 1) getSupportActionBar().setBackgroundDrawable(color1);
-        ColorDrawable color2 = new ColorDrawable(Color.parseColor("#9c732f"));
-        if(id == 2) getSupportActionBar().setBackgroundDrawable(color2);*/
-
-
 
         //Initializing the tablayout
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -60,8 +56,24 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         //Change color
-        //if(id == 1) tabLayout.setBackgroundColor(Color.parseColor("#9FCAEE"));
-        //if(id == 2) tabLayout.setBackgroundColor(Color.parseColor("#9c732f"));
+        /*
+        ColorDrawable color1 = new ColorDrawable(Color.parseColor("#9FCAEE"));
+        ColorDrawable color2 = new ColorDrawable(Color.parseColor("#9c732f"));
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        if(id == 1)
+        {
+            tabLayout.setBackgroundColor(Color.parseColor("#9FCAEE"));
+            getSupportActionBar().setBackgroundDrawable(color1);
+            window.setStatusBarColor(Color.parseColor("#9FCAEE"));
+        }
+        if(id == 2) {
+            tabLayout.setBackgroundColor(Color.parseColor("#9c732f"));
+            getSupportActionBar().setBackgroundDrawable(color2);
+            window.setStatusBarColor(Color.parseColor("#9c732f"));
+        }*/
 
         //Initializing viewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -70,8 +82,6 @@ public class ViewPagerActivity extends AppCompatActivity implements TabLayout.On
         String website = getIntent().getStringExtra("key_website");
         String summary = getIntent().getStringExtra("key_summary");
 
-        //Ajouter ici le string de la liste d'url vidéos séparées par un ';'
-        //String videoListString = getIntent().getStringExtra("key_videoList");
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), id, website, summary);
 

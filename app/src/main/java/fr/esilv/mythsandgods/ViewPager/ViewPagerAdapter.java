@@ -26,9 +26,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         this.website=website;
         this.summary=summary;
 
-        //A décommenter
-        //this.videoListString = videoListString;
-        //videoList = videoListString.split(";");
     }
 
     @Override
@@ -68,6 +65,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 VideoFragment tab5 = new VideoFragment();
                 Bundle bundle5 = new Bundle();
                 bundle5.putInt("key_id", id);
+                tab5.setArguments(bundle5);
                 return tab5;
 
 
